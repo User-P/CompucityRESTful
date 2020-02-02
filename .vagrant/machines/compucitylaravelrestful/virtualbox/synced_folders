@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/CompucityLaravelRESTful":{"type":null,"mount_options":["uid=1000","gid=1000"],"guestpath":"/home/vagrant/CompucityLaravelRESTful","hostpath":"/srv/http/CompucityLaravelRESTful","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/srv/http/CompucityLaravelRESTful","disabled":false,"__vagrantfile":true}}}
