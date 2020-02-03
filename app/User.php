@@ -12,6 +12,8 @@ class User extends Authenticatable
     const ADMIN = 'true';
     const NO_ADMIN = 'false';
 
+   // protected $table = 'user';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -19,7 +21,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'last_name',
         'email',
+        'phone',
         'email_verified_at',
         'password',
         'admin',

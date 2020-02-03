@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Address extends Model
@@ -16,5 +17,9 @@ class Address extends Model
         'postal_code',
         'customer_id'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 
 }

@@ -4,10 +4,19 @@ namespace App;
 
 use App\Address;
 use App\Customer;
+use App\OrderDetails;
+use App\PaymentMethod;
 use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+
+    const SENT = 'Enviado';
+    const DELIVERED = 'Entregado';
+    const CALCELLED  = 'Cancelado';
+    const RETURNED = 'Devuelto';
+
+
     protected $fillable = [
         'total',
         'customer_id',
@@ -27,4 +36,9 @@ class Order extends Model
     public function payment_method(){
         return $this->belongsTo(PaymentMethod::class);
     }
+
+    public function orderDetail(){
+        return $this->hasMany(OrderDetails::class);
+    }
+
 }
