@@ -14,7 +14,7 @@ class CreateAddressesTable extends Migration
     public function up()
     {
         Schema::create('addresses', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('reference_name');
             $table->string('street');
             $table->string('city');
@@ -22,7 +22,7 @@ class CreateAddressesTable extends Migration
             $table->integer('number');
             $table->integer('country');
             $table->integer('postal_code');
-            $table->bigInteger('customer_id')->unsigned();
+            $table->integer('customer_id')->unsigned();
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->timestamps();
         });

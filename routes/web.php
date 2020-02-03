@@ -15,6 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::resource('user', 'UserController');
+// Route::resource('category', 'CategoryController');
+// Route::resource('brand', 'BrandController');
+// Route::resource('products', 'ProductController');
+// Route::resource('customers', 'CustomerController');
+// Route::resource('address', 'AddressController');
+// Route::resource('orders', 'OrderController');
+// Route::resource('sales', 'SaleController');
+// Route::resource('carousel', 'CarouselController');
+
+

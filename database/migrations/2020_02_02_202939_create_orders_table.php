@@ -14,13 +14,13 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->decimal('total');
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->bigInteger('address_id')->unsigned();
+            $table->integer('customer_id')->unsigned();
+            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->integer('address_id')->unsigned();
             $table->foreign('address_id')->references('id')->on('addresses');
-            $table->bigInteger('payment_method_id')->unsigned();
+            $table->integer('payment_method_id')->unsigned();
             $table->foreign('payment_method_id')->references('id')->on('payment_methods');
             $table->string('status');
             $table->timestamps();

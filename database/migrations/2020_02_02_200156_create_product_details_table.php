@@ -14,12 +14,12 @@ class CreateProductDetailsTable extends Migration
     public function up()
     {
         Schema::create('product_details', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('name');
             $table->decimal('price',8,2);
             $table->string('description');
             $table->string('image');
-            $table->bigInteger('product_id')->unsigned();
+            $table->integer('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
