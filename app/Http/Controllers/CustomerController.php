@@ -3,21 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
-use App\User;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ApiController;
 
-class CustomerController extends Controller
+class CustomerController extends ApiController
 {
     public function index()
     {
         $customers = Customer::has('orders')->get();
-        return response()->json(['data' => $customers], 200);
+        return $this->showAll($customers);
     }
 
     public function show($id)
     {
         $customer = Customer::has('orders')->findOrfail($id);
-        return response()->json(['data' => $customer], 200);
+        return $this->showOne($customer);
     }
 }

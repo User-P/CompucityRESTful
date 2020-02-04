@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\ApiController;
 
-class AddressController extends Controller
+class AddressController extends ApiController
 {
     //
 }

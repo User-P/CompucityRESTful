@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\ApiController;
 
-class ShoppingCartController extends Controller
+class ShoppingCartController extends ApiController
 {
     //
 }

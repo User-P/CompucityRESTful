@@ -18,7 +18,7 @@ use Illuminate\Http\Request;
 // });
 
 
-Route::resource('categories', 'CategoryController',['except'=>'craete','edit']);
+Route::resource('categories', 'CategoryController',['except'=>'create','edit']);
 Route::resource('brands', 'BrandController', ['only' => ['index', 'show']]);
 Route::resource('products', 'ProductController', ['only' => ['index', 'show']]);
 Route::resource('customers', 'CustomerController', ['only' => ['index', 'show']]);
@@ -26,4 +26,4 @@ Route::resource('addresses', 'AddressController', ['only' => ['index', 'show']])
 Route::resource('orders', 'OrderController', ['only' => ['index', 'show']]);
 Route::resource('sales', 'SaleController', ['only' => ['index', 'show']]);
 Route::resource('carousels', 'CarouselController', ['only' => ['index', 'show']]);
-Route::resource('users', 'UserController',['except'=>'craete','edit']);
+Route::resource('users', 'UserController',['except'=>'create','edit']);

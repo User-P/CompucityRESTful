@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ApiController;
 
-class UserController extends Controller
+class UserController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class UserController extends Controller
     {
         $users = User::all();
         //return $users;
-        return response()->json(['data' => $users], 200);
+        return $this->showAll($users);
     }
 
     /**
@@ -38,7 +38,7 @@ class UserController extends Controller
         $fields['admin'] = User::NO_ADMIN;
         $fields['password'] = bcrypt($request->password);
         $user = User::create($fields);
-        return response()->json(['data' => $user], 200);
+        return $this->showOne($user);;
     }
 
     /**
@@ -50,7 +50,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::findOrfail($id);
-        return response()->json(['data' => $user], 200);
+        return $this->showOne($user);
     }
 
     /**
@@ -84,15 +84,15 @@ class UserController extends Controller
             $user->email = $request->email;
         }
 
-        if($request->has('admin')){
-            return response()->json(['error','Unicamente un administrador puede realizar esta acción','code',409],409);
+        if ($request->has('admin')) {
+            return $this->errorResponse('Unicamente un administrador puede realizar esta acción', 409);
         }
 
         if (!$user->isDirty()) {
-            return response()->json(['error' => 'Todos los campos coinciden, no se realizaron actualizaciones', 'code' => 422], 422);
+            return $this->errorResponse('Todos los campos coinciden, no se realizaron actualizaciones', 422);
         }
         $user->save();
-        return response()->json(['data' => $user], 200);
+        return $this->showOne($user);
     }
 
     /**
@@ -105,6 +105,5 @@ class UserController extends Controller
     {
         $user = User::findOrfail($id);
         $user->delete();
-        return response()->json(['data'=>$user],200);
-    }
+        return $this->showOne($user);    }
 }
