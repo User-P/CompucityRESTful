@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
             $table->integer('brand_id')->unsigned();
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->integer('quantity_stock');
-            $table->string('status')->default(Product::PRODUCT_NOT_AVAILABLE );
+            $table->string('status')->default(Product::PRODUCT_AVAILABLE );
             $table->timestamps();
         });
     }

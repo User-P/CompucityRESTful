@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ShoppingCart extends Model
 {
     protected $fillable = [
-        'customer_id',
+        'user_id',
         'product_id',
         'quantity'
     ];
@@ -16,7 +16,7 @@ class ShoppingCart extends Model
         return $this->belongsTo(Customer::class);
     }
 
-    public function product(){
+    public function products(){
         return $this->hasMany(Product::class);
     }
 }

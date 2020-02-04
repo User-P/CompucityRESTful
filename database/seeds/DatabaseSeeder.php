@@ -1,9 +1,11 @@
 <?php
+
 use App\User;
 use App\Address;
 use App\Brand;
 use App\Category;
 use App\Order;
+use App\OrderDetails;
 use App\PaymentMethod;
 use App\Product;
 use Illuminate\Database\Seeder;
@@ -28,28 +30,22 @@ class DatabaseSeeder extends Seeder
         PaymentMethod::truncate();
         Order::truncate();
 
-        $users = 100;
+        $users = 1000;
         $categories = 20;
         $brands = 15;
-        $products = 500;
-        $customers = 50;
-        $address = 100;
+        $products = 1000;
+        $address = 3000;
         $paymentMethod = 100;
         $order = 100;
+        $orderDetail = 500;
 
-        factory(User::class,$users)->create();
-        factory(Category::class,$categories)->create();
-        factory(Brand::class,$brands)->create();
-
-        // factory(Product::class,$products)->create()->each(
-        //     function($producto){
-        //         $categoria = Category::all()->random()->pluck('id');
-        //         $producto->categories()->attach($categoria);
-        //     }
-        // );
-
-        // factory(User::class,$users)->create();
-        // factory(User::class,$users)->create();
-        // factory(User::class,$users)->create();
+        factory(User::class, $users)->create();
+        factory(Category::class, $categories)->create();
+        factory(Brand::class, $brands)->create();
+        factory(Address::class, $address)->create();
+        factory(Product::class, $products)->create();
+        factory(PaymentMethod::class,$paymentMethod)->create();
+        factory(Order::class,$order)->create();
+        factory(OrderDetails::class,$orderDetail)->create();
     }
 }

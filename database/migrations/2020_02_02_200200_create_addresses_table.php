@@ -19,8 +19,8 @@ class CreateAddressesTable extends Migration
             $table->string('street');
             $table->string('city');
             $table->string('state');
+            $table->string('country');
             $table->integer('number');
-            $table->integer('country');
             $table->integer('postal_code');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');

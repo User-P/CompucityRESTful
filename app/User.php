@@ -12,6 +12,8 @@ class User extends Authenticatable
     const ADMIN = 'true';
     const NO_ADMIN = 'false';
 
+    protected $table = 'users';
+
    // protected $table = 'user';
 
     /**
@@ -53,5 +55,9 @@ class User extends Authenticatable
     public function esAdmin()
     {
         return $this->admin == User::ADMIN;
+    }
+
+    public function customer(){
+        return $this->hasMany(Customer::class);
     }
 }

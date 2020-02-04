@@ -10,15 +10,15 @@ use App\ShoppingCart;
 class Customer extends User
 {
     //hasMany Relacion uno a muchos
-    public function address(){
+    public function addresses(){
         return $this->hasMany(Address::class);
     }
 
-    public function shoppingCart(){
+    public function shoppingCarts(){
         return $this->hasMany(ShoppingCart::class);
     }
 
-    public function order(){
+    public function orders(){
         return $this->hasMany(Order::class);
     }
 

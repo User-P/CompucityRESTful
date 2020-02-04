@@ -19,7 +19,7 @@ class Order extends Model
 
     protected $fillable = [
         'total',
-        'customer_id',
+        'user_id',
         'address_id',
         'payment_method_id',
         'status'
@@ -37,7 +37,7 @@ class Order extends Model
         return $this->belongsTo(PaymentMethod::class);
     }
 
-    public function orderDetail(){
+    public function orderDetails(){
         return $this->hasMany(OrderDetails::class);
     }
 
